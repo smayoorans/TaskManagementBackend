@@ -29,7 +29,7 @@ namespace TaskManager.Controllers
           {
               return NotFound();
           }
-            return await _context.Tasks.ToListAsync();
+            return await _context.Tasks.Include(a => a.Assignee).ToListAsync();
         }
 
         // GET: api/TaskItems/5
