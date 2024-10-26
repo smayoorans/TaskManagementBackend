@@ -8,9 +8,9 @@ namespace TaskManager.Models
         public int Id { get; set; }
 
         [Required]
-        public required string AdddressLine1 { get; set; }
+        public required string AddressLine1 { get; set; }
         
-        public string? AdddressLine2 { get; set; }
+        public string? AddressLine2 { get; set; }
 
         public string? City { get; set; }
 

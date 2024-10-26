@@ -29,7 +29,7 @@ namespace TaskManager.Controllers
           {
               return NotFound();
           }
-            return await _context.Users.Include(a => a.Address).ToListAsync();
+            return await _context.Users.Include(a => a.Address).Include(b => b.Tasks).ToListAsync();
         }
 
         // GET: api/Users/5
@@ -40,7 +40,7 @@ namespace TaskManager.Controllers
           {
               return NotFound();
           }
-            var user = await _context.Users.Include(a => a.Tasks).Include(a => a.Address).FirstOrDefaultAsync(b => id == b.Id);
+            var user = await _context.Users.Include(a => a.Address).FirstOrDefaultAsync(b => id == b.Id);
 
             if (user == null)
             {

@@ -16,10 +16,11 @@ namespace TaskManager.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<TaskItem>()
-                .HasOne(o => o.Assignee)          // Each Order has one Person
-                .WithMany(p => p.Tasks)         // One Person has many Orders
-                .HasForeignKey(o => o.AssigneeId); // Order has the FK
+            modelBuilder.Entity<User>()
+                .HasMany(o => o.Tasks)          
+                .WithOne(p => p.Assignee)         
+                .HasForeignKey(o => o.AssigneeId); 
+
 
             modelBuilder.Entity<User>()
                 .HasOne(a => a.Address)
