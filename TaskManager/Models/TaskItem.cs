@@ -22,6 +22,8 @@ namespace TaskManager.Models
 
         public int? AssigneeId { get; set; }
 
+        public ICollection<CheckList>? CheckLists { get; set; }
+
 
     }
 }

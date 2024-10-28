@@ -25,7 +25,13 @@ namespace TaskManager.Data
             modelBuilder.Entity<User>()
                 .HasOne(a => a.Address)
                 .WithOne(b => b.User)
-                .HasForeignKey<Address>(c => c.UserId);
+                .HasForeignKey<Address>(c => c.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<TaskItem>()
+                .HasMany(t => t.CheckLists)
+                .WithOne(c => c.Task)
+                .HasForeignKey(c => c.TaskId);
 
             base.OnModelCreating(modelBuilder);
         }
