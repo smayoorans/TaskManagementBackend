@@ -17,7 +17,9 @@ namespace TaskManager.Models
 
         public ICollection<TaskItem> Tasks { get; set; } = new List<TaskItem>();
 
-        public Address Address { get; set; }
+        public Address? Address { get; set; }
+
+        public Role Role { get; set; }
 
     }
 }
